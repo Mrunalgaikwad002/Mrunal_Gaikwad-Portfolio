@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Great+Vibes&family=Allura&family=Alex+Brush&display=swap');
 
 :root {
   --background: #ffffff;
@@ -20,10 +21,83 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #111827;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+html, body {
+  min-height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Flip card 3D effect */
+
+.flip-card {
+  width: 340px;
+  height: 400px;
+  perspective: 1000px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+
+/* Visual enhancements for the card */
+.sheen {
+  position: relative;
+  overflow: hidden;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -150%;
+  width: 120%;
+  height: 300%;
+  transform: rotate(20deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: transform 900ms ease;
+}
+.flip-card:hover .sheen::after {
+  transform: translateX(180%) rotate(20deg);
+}
+/* Removed hover translate to prevent vertical shift */
 
 /* Hero word backdrop */
 :root {
@@ -42,34 +116,74 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  z-index: -1;
-  background: radial-gradient(800px 400px at 50% 40%, rgba(255,255,255,0.12), transparent 70%);
+  z-index: 0;
+  background: #111827;
   pointer-events: none;
-  opacity: 0;
-  animation: fade-in-bg 1s ease-out 1.5s forwards;
-  /* fade edges horizontally and vertically like reference */
-  -webkit-mask-image: 
-    linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
-  mask-image: 
-    linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px 20px 0 20px;
 }
 .hero-row {
   display: flex;
   gap: 16px;
   font-weight: 800;
-  font-size: clamp(32px, 6vw, 76px);
+  font-size: clamp(48px, 8vw, 96px);
   letter-spacing: 0.02em;
-  opacity: 0.32;
+  opacity: 0.4;
   white-space: nowrap;
-  padding: 2px 0;
-  height: calc(100vh / 13);
-  margin: -2px 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
   animation: none;
-  transform: translateX(calc(var(--row-offset, 0) * 1px));
+  text-align: center;
+}
+
+/* Clean name styling matching Skills section */
+.hero-row.name-row {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.25rem, 5vw, 3rem) !important;
+  opacity: 0;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  animation: slide-in-down 0.8s ease-out 2.0s forwards;
+  position: relative;
+  z-index: 15;
+}
+
+.hero-row.name-row .hero-word {
+  font-size: clamp(2.25rem, 5vw, 3rem) !important;
+  font-weight: 700 !important;
+}
+
+/* Clean title styling matching Skills section */
+.hero-row.title-row {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: clamp(28px, 5vw, 56px) !important;
+  opacity: 0;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  animation: slide-in-down 0.8s ease-out 2.2s forwards;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-row.title-row .hero-word {
+  font-size: clamp(28px, 5vw, 56px) !important;
+  font-weight: 500 !important;
 }
 .hero-row.reverse {
   animation: none;
@@ -81,13 +195,14 @@ body {
 
 .hero-word.highlighted {
   opacity: 1;
-  text-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
-  filter: brightness(1.3);
+  text-shadow: none;
+  filter: none;
 }
 
 .center-row {
   justify-content: center;
   gap: 32px;
+  margin: 8px 0;
 }
 
 @keyframes scroll-left {
@@ -131,9 +246,9 @@ body {
 .avatar-wrap {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: 5vh;
   transform: translateX(-50%);
-  width: min(90vw, 900px);
+  width: min(80vw, 800px);
   aspect-ratio: 16 / 9;
   z-index: 1;
 }
@@ -144,10 +259,11 @@ body {
   transform: translateX(-50%);
   width: min(44vw, 400px);
   display: block;
-  z-index: 1;
+  z-index: 10;
   filter: drop-shadow(0 10px 40px rgba(0,0,0,0.5));
   opacity: 0;
-  animation: rise-in 700ms cubic-bezier(.22,.61,.36,1) 3s forwards, bob 6s ease-in-out 3.8s infinite;
+  animation: rise-in 700ms cubic-bezier(.22,.61,.36,1) 2.8s forwards, bob 6s ease-in-out 3.6s infinite;
+  animation-fill-mode: both;
   object-fit: cover;
   object-position: center 20%;
   border-radius: 22px;
@@ -155,28 +271,90 @@ body {
 .laptop-img {
   position: absolute;
   left: 50%;
-  bottom: -1vh;
-  transform: translateX(-50%);
-  width: min(50vw, 520px);
+  bottom: -5vh;
+  transform: translateX(-50%) rotateX(-90deg);
+  transform-origin: bottom center;
+  width: min(60vw, 600px);
   display: block;
-  z-index: 2;
+  z-index: 20;
   filter: drop-shadow(0 18px 60px rgba(0,0,0,0.55));
   opacity: 0;
-  animation: rise-in 800ms cubic-bezier(.22,.61,.36,1) 0.5s forwards;
+  animation: laptop-open 1.2s cubic-bezier(.22,.61,.36,1) 0.5s forwards;
+  animation-fill-mode: both;
 }
 @keyframes bob {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -6px); }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
 }
 
 @keyframes rise-in {
-  0% { opacity: 0; transform: translate(-50%, 12px); }
-  100% { opacity: 1; transform: translate(-50%, 0); }
+  0% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 @keyframes fade-in-bg {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@keyframes slide-in-down {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-30px) scale(0.95); 
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.5));
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes laptop-open {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-50%) rotateX(-90deg); 
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-50%) rotateX(-70deg);
+  }
+  40% {
+    transform: translateX(-50%) rotateX(-50deg);
+  }
+  60% {
+    transform: translateX(-50%) rotateX(-30deg);
+  }
+  80% {
+    transform: translateX(-50%) rotateX(-10deg);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateX(-50%) rotateX(0deg); 
+  }
 }
 
 /* Marquee */
@@ -201,4 +379,217 @@ body {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
+}
+
+/* Enhanced Navigation Animations */
+@keyframes navGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Navigation hover effects */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.nav-item:hover::before {
+  left: 100%;
+}
+
+/* Scroll progress bar animation */
+.scroll-progress {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4, #3b82f6);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced button hover effects */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Skills Section Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skillCardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes skillDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.skill-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.skill-card:hover {
+  animation: skillCardFloat 2s ease-in-out infinite;
+}
+
+.skill-dot {
+  animation: skillDotPulse 2s ease-in-out infinite;
+}
+
+/* Staggered animation for skill cards */
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+.skill-card:nth-child(7) { animation-delay: 0.7s; }
+
+/* Education Timeline */
+.education-timeline {
+  padding-left: 28px;
+}
+.education-timeline .timeline-line {
+  position: absolute;
+  left: 36px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #3b82f6, #06b6d4);
+  border-radius: 999px;
+}
+.education-timeline .timeline-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.education-timeline .timeline-dot {
+  position: relative;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+  margin-left: -4px;
+}
+.education-timeline .timeline-dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(closest-side, rgba(59,130,246,0.35), transparent);
+  animation: pulseRing 2.2s ease-out infinite;
+}
+.education-timeline .timeline-card {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+.education-timeline .timeline-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+.education-timeline .edu-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 1; }
+  70% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+.education-timeline .timeline-card {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
 }
