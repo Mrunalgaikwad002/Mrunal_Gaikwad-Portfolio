@@ -8,7 +8,7 @@ export default function Nav() {
   const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'achievements', 'certificates'];
+    const sections = ['home', 'about', 'skills', 'education', 'projects', 'experience', 'achievements', 'certificates', 'contact'];
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -60% 0px',
