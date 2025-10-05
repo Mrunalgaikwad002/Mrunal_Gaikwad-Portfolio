@@ -275,7 +275,7 @@ html, body {
 /* Mobile-specific refinements for Hero so all content fits on screen */
 @media (max-width: 480px) {
   /* Ensure navbar has room and content starts below it */
-  #home { padding-top: 64px; min-height: auto; padding-bottom: 16px; }
+  #home { padding-top: 64px; min-height: auto; padding-bottom: 48px; }
 
   .hero-bg { padding: 16px 16px 0 16px; }
 
@@ -301,25 +301,28 @@ html, body {
     bottom: auto;
     width: 100%;
     aspect-ratio: auto;
-    margin: 12px auto 0;
+    margin: 112px auto 0; /* push images further down on mobile */
   }
+  .laptop-img { margin-top: 20px; }
   .avatar-img {
     position: static;
     left: auto;
     transform: none;
-    width: min(56vw, 240px);
+    width: min(48vw, 200px);
     margin: 0 auto;
     opacity: 1;
     animation: none;
+    z-index: 0;
   }
   .laptop-img {
     position: static;
     left: auto;
     transform: none;
-    width: min(78vw, 360px);
-    margin: 8px auto 0;
+    width: min(70vw, 320px);
+    margin: 12px auto 0;
     opacity: 1;
     animation: none;
+    z-index: 0;
   }
 }
 
