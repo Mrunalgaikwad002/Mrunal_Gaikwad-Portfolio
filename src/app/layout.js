@@ -12,18 +12,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mrunal Gaikwad — AI & GenAI",
+  title: "Mrunal Gaikwad — Web Developer",
   description: "AI/GenAI practitioner building production ML systems and copilots.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Mrunal Gaikwad — AI & GenAI",
+    title: "Mrunal Gaikwad — Web Developer",
     description: "AI/GenAI practitioner building production ML systems and copilots.",
     type: "website",
     images: ["/og.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mrunal Gaikwad — AI & GenAI",
+    title: "Mrunal Gaikwad — Web Developer",
     description: "AI/GenAI practitioner building production ML systems and copilots.",
     images: ["/og.jpg"],
   },
