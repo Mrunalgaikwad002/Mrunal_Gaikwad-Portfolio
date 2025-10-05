@@ -9,7 +9,10 @@ const demoProjects = [
     image: "/DevTrack.png",
     links: {
       demo: "https://devtrack-project-management.netlify.app",
-      repo: "#",
+      repo: [
+        "https://github.com/Mrunalgaikwad002/DevTrack.git",
+        "https://github.com/Mrunalgaikwad002/DevTrack-Backend.git",
+      ],
     },
   },
 
@@ -31,7 +34,10 @@ const demoProjects = [
     image: "/LanceConnect.png",
     links: {
       demo: "https://lanceconnect.netlify.app",
-      repo: "#",
+      repo: [
+        "https://github.com/Mrunalgaikwad002/LanceConnect.git",
+        "https://github.com/Mrunalgaikwad002/LanceConnect-Backend.git",
+      ],
     },
   },
 
@@ -51,8 +57,11 @@ const demoProjects = [
     ],
     image: "/CabNet.png",
     links: {
-      demo: "#",
-      repo: "#",
+      demo: "https://cabnet.vercel.app/",
+      repo: [
+        "https://github.com/Mrunalgaikwad002/Cabnet.git",
+        "https://github.com/Mrunalgaikwad002/CabNet-Backend.git",
+      ],
     },
   },
 
@@ -73,12 +82,15 @@ const demoProjects = [
     image: "/SignSnap.png",
     links: {
       demo: "https://signsnap-digital-sign.netlify.app",
-      repo: "#",
+      repo: [
+        "https://github.com/Mrunalgaikwad002/SignSnap.git",
+        "https://github.com/Mrunalgaikwad002/SnapSign-Backend.git",
+      ],
     },
   },
 
   {
-    title: "Cloud Storage App",
+    title: "DataDock",
     summary:
       "Full-stack cloud storage platform with role-based authentication, file uploads, folder hierarchy, sharing permissions, search, trash, and versioning. Features include JWT auth, Google OAuth, secure file storage via AWS S3/Firebase, and responsive dashboard UI with previews. Built with React, Tailwind, Node.js, Express, and PostgreSQL/MongoDB for scalable file management.",
     tech: [
@@ -94,7 +106,10 @@ const demoProjects = [
     image: "/DataDock.png",
     links: {
       demo: "https://datadock-file-sharing.netlify.app/",
-      repo: "#",
+      repo: [
+        "https://github.com/Mrunalgaikwad002/DataDock.git",
+        "https://github.com/Mrunalgaikwad002/DataDock-Backend.git",
+      ],
     },
   },
 
@@ -115,7 +130,10 @@ const demoProjects = [
       image: "/WanderScape.png",
       links: {
         demo: "http://wanderscape.netlify.app",
-        repo: "#",
+        repo: [
+          "https://github.com/Mrunalgaikwad002/WanderScapeFrontend.git",
+          "https://github.com/Mrunalgaikwad002/WanderScape.git",
+        ],
       },
       
   }
@@ -159,31 +177,51 @@ export default function Projects() {
                         key={t}
                         className="inline-flex items-center rounded-full bg-blue-500/10 text-blue-300 px-3 py-1 text-xs font-medium ring-1 ring-inset ring-blue-500/20"
                       >
-                        {t}
+                        {/webrtc/i.test(t) ? (
+                          <>
+                            <span className="mr-1">📹</span>
+                            {t}
+                          </>
+                        ) : (
+                          t
+                        )}
                       </span>
                     ))}
                   </div>
                 )}
 
                 {(p.links?.demo || p.links?.repo) && (
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 md:gap-3">
                     {p.links?.demo && (
                       <a
                         href={p.links.demo}
-                        className="inline-flex items-center rounded-lg bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+                        className="inline-flex items-center whitespace-nowrap leading-none rounded-lg bg-gradient-to-r from-blue-500 to-teal-500 text-white px-3 md:px-4 py-2 text-xs sm:text-sm font-medium tracking-tight hover:shadow-lg hover:shadow-blue-500/25 transition-all"
                         target="_blank" rel="noreferrer"
                       >
                         Live Demo
                       </a>
                     )}
                     {p.links?.repo && (
-                      <a
-                        href={p.links.repo}
-                        className="inline-flex items-center rounded-lg px-4 py-2 text-sm font-medium text-blue-300 ring-1 ring-inset ring-blue-500/30 hover:bg-blue-500/10 transition-colors"
-                        target="_blank" rel="noreferrer"
-                      >
-                        View Code
-                      </a>
+                      Array.isArray(p.links.repo) ? (
+                        p.links.repo.map((repoUrl, idx) => (
+                          <a
+                            key={repoUrl}
+                            href={repoUrl}
+                            className="inline-flex items-center whitespace-nowrap leading-none rounded-lg px-3 md:px-4 py-2 text-xs sm:text-sm font-medium tracking-tight text-blue-300 ring-1 ring-inset ring-blue-500/30 hover:bg-blue-500/10 transition-colors"
+                            target="_blank" rel="noreferrer"
+                          >
+                            {idx === 0 ? 'Frontend Code' : 'Backend Code'}
+                          </a>
+                        ))
+                      ) : (
+                        <a
+                          href={p.links.repo}
+                          className="inline-flex items-center whitespace-nowrap leading-none rounded-lg px-3 md:px-4 py-2 text-xs sm:text-sm font-medium tracking-tight text-blue-300 ring-1 ring-inset ring-blue-500/30 hover:bg-blue-500/10 transition-colors"
+                          target="_blank" rel="noreferrer"
+                        >
+                          View Code
+                        </a>
+                      )
                     )}
                   </div>
                 )}

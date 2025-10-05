@@ -18,7 +18,7 @@ export default function Skills() {
         { name: "Tailwind CSS", icon: "💨" },
         { name: "Redux toolkit", icon: "🔄" },
         { name: "Socket.io", icon: "🔗" },
-        { name: "Webrtc", icon: "🔗" },
+        { name: "Webrtc", icon: "📹" },
       ]
     },
     {
