@@ -148,18 +148,6 @@ export default function Nav() {
                 <div className="absolute inset-0 rounded-md bg-gradient-to-r from-blue-500/0 to-teal-500/0 group-hover:from-blue-500/5 group-hover:to-teal-500/5 transition-all duration-200" />
               </a>
             ))}
-            
-            {/* CTA Button with enhanced styling */}
-            <a 
-              href="#contact" 
-              className="relative z-0 shrink-0 order-last hidden sm:inline-flex items-center rounded-full bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 text-xs font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
-            >
-              <span className="relative z-10 flex items-center space-x-2">
-                <span>Let's Connect</span>
-                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-              </span>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
           </div>
         </nav>
       </header>
