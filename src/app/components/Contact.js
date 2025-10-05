@@ -13,8 +13,8 @@ export default function Contact() {
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Get In Touch</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 rounded-full"></div>
           <p className="text-gray-300 mt-6 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you. 
-            Send me a message and I'll get back to you as soon as possible.
+            Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you. 
+            Send me a message and I&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
@@ -22,7 +22,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-xl font-semibold mb-6">Let's Connect</h3>
+              <h3 className="text-xl font-semibold mb-6">Let&apos;s Connect</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
@@ -130,7 +130,7 @@ export default function Contact() {
                     name="subject"
                     required
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="What's this about?"
+                    placeholder="What&apos;s this about?"
                   />
                   <ValidationError 
                     prefix="Subject" 
