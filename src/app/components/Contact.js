@@ -74,7 +74,7 @@ export default function Contact() {
               <div className="text-center py-8">
                 <div className="text-6xl mb-4">✅</div>
                 <h3 className="text-xl font-semibold text-green-400 mb-2">Message Sent Successfully!</h3>
-                <p className="text-gray-300">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                <p className="text-gray-300">Thank you for reaching out. I&apos;ll get back to you as soon as possible.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
