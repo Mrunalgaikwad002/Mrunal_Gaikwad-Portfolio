@@ -51,6 +51,7 @@ export default function Hero() {
       <div className="mx-auto max-w-6xl px-4 py-24 grid place-items-center">
         <div className="mt-10 w-full">
           <div className="avatar-wrap">
+            {/* Floating tech icons */}
             <img src="/avatar.png" alt="Avatar" className="avatar-img" />
             <img src="/laptop.png" alt="Laptop" className="laptop-img" />
           </div>

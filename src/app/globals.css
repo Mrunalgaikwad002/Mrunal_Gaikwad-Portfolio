@@ -126,6 +126,8 @@ html, body {
   align-items: center;
   padding: 10px 20px 0 20px; /* move text block up */
 }
+
+/* Removed floating tech icons styles */
 .hero-row {
   display: flex;
   gap: 16px;
@@ -205,12 +207,17 @@ html, body {
 .hero-script {
   font-family: 'Great Vibes', 'Allura', 'Alex Brush', cursive !important;
   font-weight: 700 !important;
-  background: linear-gradient(90deg, #60a5fa 0%, #34d399 100%);
+  background: linear-gradient(90deg, #22d3ee 0%, #67e8f9 50%, #22d3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
   letter-spacing: 0.5px;
+  /* subtle enhancements for clarity and appeal */
+  -webkit-text-stroke: 0.5px rgba(255,255,255,0.05);
+  text-shadow: 0 2px 8px rgba(34,211,238,0.22);
+  background-size: 200% 100%;
+  animation: gradientShift 10s ease-in-out infinite;
 }
 
 .hero-row.name-row .hero-script {
