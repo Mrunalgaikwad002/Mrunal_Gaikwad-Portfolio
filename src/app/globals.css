@@ -28,6 +28,10 @@ body {
   padding: 0;
 }
 
+/* Hide scrollbar utility for horizontal scroll containers on mobile */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 html, body {
   min-height: 100%;
   overflow-y: auto;
@@ -37,7 +41,7 @@ html, body {
 /* Flip card 3D effect */
 
 .flip-card {
-  width: 340px;
+  width: min(100%, 340px);
   height: 400px;
   perspective: 1000px;
   position: relative;
@@ -266,6 +270,57 @@ html, body {
   .hero-row { animation: none; }
   .avatar-img { animation: none; opacity: 1; }
   .laptop-img { animation: none; opacity: 1; }
+}
+
+/* Mobile-specific refinements for Hero so all content fits on screen */
+@media (max-width: 480px) {
+  /* Ensure navbar has room and content starts below it */
+  #home { padding-top: 64px; min-height: auto; padding-bottom: 16px; }
+
+  .hero-bg { padding: 16px 16px 0 16px; }
+
+  /* Reduce overall word size and tighten spacing */
+  .center-row { gap: 12px; margin: 4px 0; }
+
+  /* Allow lines to wrap to two lines on small screens */
+  .hero-row { white-space: normal; line-height: 1.2; }
+
+  /* Name line size */
+  .hero-row.name-row { font-size: clamp(24px, 8vw, 32px) !important; }
+  .hero-row.name-row .hero-word { font-size: clamp(24px, 8vw, 32px) !important; }
+
+  /* Title lines size */
+  .hero-row.title-row { font-size: clamp(14px, 4.2vw, 18px) !important; }
+  .hero-row.title-row .hero-word { font-size: clamp(14px, 4.2vw, 18px) !important; }
+
+  /* Avatar/laptop: place directly under text with minimal gap */
+  .avatar-wrap {
+    position: static;
+    left: auto;
+    transform: none;
+    bottom: auto;
+    width: 100%;
+    aspect-ratio: auto;
+    margin: 12px auto 0;
+  }
+  .avatar-img {
+    position: static;
+    left: auto;
+    transform: none;
+    width: min(56vw, 240px);
+    margin: 0 auto;
+    opacity: 1;
+    animation: none;
+  }
+  .laptop-img {
+    position: static;
+    left: auto;
+    transform: none;
+    width: min(78vw, 360px);
+    margin: 8px auto 0;
+    opacity: 1;
+    animation: none;
+  }
 }
 
 .avatar-wrap {

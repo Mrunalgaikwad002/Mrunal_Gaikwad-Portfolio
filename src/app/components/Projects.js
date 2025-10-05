@@ -145,13 +145,13 @@ const demoProjects = [
 export default function Projects() {
   return (
     <section id="projects" className="py-20 bg-gray-900">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Projects</h2>
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-teal-500 mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
           {demoProjects.map((p) => (
             <article
               key={p.title}

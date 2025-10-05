@@ -29,13 +29,13 @@ export default function Achievements() {
 
   return (
     <section id="achievements" className="bg-gray-900 text-white py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Key Achievements</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {achievements.map((achievement, index) => (
             <div
               key={index}

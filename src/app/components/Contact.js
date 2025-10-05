@@ -9,7 +9,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="bg-gray-900 text-white py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">Get In Touch</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 rounded-full"></div>
@@ -19,41 +19,41 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-semibold mb-6">Lets Connect</h3>
               <div className="space-y-4">
-                <div className="flex items-center gap-4">
+                <div className="flex items-start sm:items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                     <span className="text-xl">📧</span>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-medium">Email</p>
                     <p className="text-gray-300">mrunalgaikwad02@gmail.com</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4">
+                <div className="flex items-start sm:items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                     <span className="text-xl">💼</span>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-medium">LinkedIn</p>
-                    <a href="https://www.linkedin.com/in/mrunalgaikwad02" className="text-blue-400 hover:text-blue-300 transition-colors">
+                    <a href="https://www.linkedin.com/in/mrunalgaikwad02" className="text-blue-400 hover:text-blue-300 transition-colors break-all">
                       linkedin.com/in/mrunalgaikwad02
                     </a>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-4">
+                <div className="flex items-start sm:items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                     <span className="text-xl">🐙</span>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="font-medium">GitHub</p>
-                    <a href="https://github.com/Mrunalgaikwad002" className="text-blue-400 hover:text-blue-300 transition-colors">
+                    <a href="https://github.com/Mrunalgaikwad002" className="text-blue-400 hover:text-blue-300 transition-colors break-all">
                       github.com/Mrunalgaikwad002
                     </a>
                   </div>

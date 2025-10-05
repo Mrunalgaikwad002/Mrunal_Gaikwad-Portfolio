@@ -104,10 +104,10 @@ export default function Nav() {
         />
       </div>
 
-      <header className={`fixed top-1 left-0 right-0 z-40 backdrop-blur-md bg-background/80 border-b border-white/10 transition-all duration-300 ${
+      <header className={`sticky top-0 left-0 right-0 z-40 backdrop-blur-md bg-background/80 border-b border-white/10 transition-all duration-300 ${
         isScrolling ? 'shadow-lg shadow-blue-500/10' : ''
       }`}>
-        <nav className="mx-auto max-w-7xl px-3 h-14 flex items-center justify-between">
+        <nav className="mx-auto max-w-7xl px-3 py-2 flex flex-wrap items-center justify-between gap-2">
           {/* Logo with hover effect */}
           <a 
             href="#home" 
@@ -120,7 +120,7 @@ export default function Nav() {
           </a>
 
           {/* Navigation Items */}
-          <div className="relative flex items-center gap-2 md:gap-4 lg:gap-6 flex-wrap justify-end">
+          <div className="relative flex flex-wrap items-center gap-2 md:gap-4 lg:gap-6">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -151,8 +151,7 @@ export default function Nav() {
           </div>
         </nav>
       </header>
-      {/* Spacer to offset fixed header height */}
-      <div className="h-14" />
+      {/* Sticky header doesn't need spacer */}
     </>
   );
 }
